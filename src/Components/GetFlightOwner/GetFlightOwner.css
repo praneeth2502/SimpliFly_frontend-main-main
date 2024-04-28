@@ -1,0 +1,54 @@
+.getflightOwner-div{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    
+}
+.get-flightOwner-div{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.get-allflightOwner-btn{
+    margin: 10px;
+    width: 30%;
+    height: 40px;
+    font-size: 18px;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    border-radius: 6px;
+    background-color: white;
+    box-shadow: 2px 2px 8px rgb(145, 143, 143);
+}
+.flightOwner-list-div{
+    width: 80%;
+    display: flex;
+justify-content: space-between;
+align-items: center;
+border: 1px solid;
+padding: 6px;
+margin: 5px;
+}
+.flightOwner-row p{
+    font-size: 16px;
+    font-weight: bold;
+}
+.delete-flightOwner-btn{
+    height: 30px;
+    width: 30px;
+    background-color: red;
+    color: white;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+}
+.delete-flightOwner-btn:hover{
+    cursor: pointer;
+    box-shadow: 2px 2px 8px rgb(71, 70, 70);
+}

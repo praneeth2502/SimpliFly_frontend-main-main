@@ -1,0 +1,58 @@
+.schedule-div{
+    margin-top: -5%;
+    padding: 10px;
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+}
+.get-schedule-btn{
+    width: 30%;
+  font-size: 18px;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  border-radius: 6px;
+  background-color: white;
+  box-shadow: 2px 2px 8px rgb(145, 143, 143);
+}
+.schedule-list-div{
+    padding: 10px;
+    width: 95%;
+    margin: 10px;
+    box-shadow: 2px 2px 10px rgba(69, 67, 67, 0.5);
+    border-radius: 3px;
+    background-color: white;
+}
+.schedule-flight-detail{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #b7b7b6;
+    border-radius: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.schedule-route-detail{
+    margin: 5px;
+    display: flex;
+    justify-content: space-between;
+    height: 80%;
+}
+.schedule-source-detail,.schedule-destination-detail{
+    width: 45%;
+    height: 100%;
+}
+
+@media (max-width: 900px) {
+    .schedule-div{
+        width: 100%;
+    }
+    .schedule-route-detail{
+        display: flex;
+        flex-direction: column;
+    }
+    .schedule-source-detail,.schedule-destination-detail{
+        width: 98%;
+        margin: 10px;
+    }
+}

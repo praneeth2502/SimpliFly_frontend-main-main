@@ -1,0 +1,166 @@
+
+/* Login Page Container */
+.login-page {
+    margin-top: 50px;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background-color: whitesmoke;
+}
+
+/* Login Container */
+.login-div {
+    height: auto;
+    width: 90%;
+    max-width: 400px;
+    background: rgba(255, 255, 255, 0.8); /* Glass-like background color with transparency */
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    font-family: 'Roboto Slab', serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    position: relative;
+    z-index: 2;
+}
+
+/* Login Form */
+.login-div form {
+    width: 90%; /* Adjusted form width */
+    max-width: 350px; /* Max width for responsiveness */
+    padding: 20px;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.8); /* Match login container background */
+}
+
+/* Input Containers */
+.username-div,
+.password-div {
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+/* Inputs */
+.login-inputs {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-family: 'Roboto Slab', serif;
+    font-size: 14px;
+    background-color: #f2f2f2; /* Light gray background */
+}
+
+/* Image Icons */
+.username-div img,
+.password-div img {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+/* Login Buttons */
+.login-buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.login-buttons button {
+    padding: 10px 0; /* Adjusted padding */
+    width: 48%; /* Adjusted width to fit two buttons */
+    border: none;
+    border-radius: 8px;
+    font-family: 'Roboto Slab', serif;
+    font-size: 16px; /* Increased font size */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    background-color: white; /* Default button background color */
+    color: black; /* Text color */
+}
+
+.login-buttons button:hover {
+    background-color: #339ef0; /* Darker shade on hover */
+    transform: translateY(-2px);
+}
+
+.login-buttons button.selected {
+    background-color: #339ef0; /* Selected button background color (Facebook blue) */
+    color: black; /* Selected button text color */
+}
+
+.login-buttons button.selected:hover {
+    background-color: #146cdf; /* Darker shade on hover */
+}
+
+#login-btn{
+    margin: 20px 0; /* Added margin for spacing */
+    padding: 10px 0; /* Adjusted padding */
+    width: 100%;
+    border: none;
+    border-radius: 8px;
+    font-family: 'Roboto Slab', serif;
+    font-size: 16px; /* Increased font size */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#login-btn {
+    background-color: #1877f2;
+    color: white;
+}
+
+#login-btn:hover {
+    background-color: #146cdf;
+}
+/* Register Option Buttons */
+.register-option-btn {
+    background-color: #9AC8CD;
+    margin-top: 20px; /* Added margin for spacing */
+    margin-right: 10px; /* Added margin between buttons */
+    padding: 5px 10px; /* Adjusted padding */
+    border: none;
+    border-radius: 6px;
+    font-family: 'Roboto Slab', serif;
+    font-size: 14px;
+    background-color: 146cdf; /* Light blue background */
+    color: #333; /* Dark gray text */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+
+.register-option-btn:hover {
+    background-color: lightblue; /* Light blue background on hover */
+}
+.forgot-password {
+    color: darkcyan;
+    cursor: pointer; /* Add cursor pointer for better UX */
+  }  
+
+.forgot-password span {
+    color: blue;
+    cursor: pointer;
+  }
+  
+  .forgot-password span:hover {
+    text-decoration: underline;
+  }
+  
+  .login-img img {
+    max-width: 50%; /* Ensure the image doesn't exceed its container's width */
+  }
+  .login-img {
+    width: 120%;
+    height: 120%;
+    border-radius: 30px;
+    margin-top: -30px;
+    margin-bottom: -30px;
+    margin-left: 220px;
+  }

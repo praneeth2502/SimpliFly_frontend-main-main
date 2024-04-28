@@ -1,0 +1,122 @@
+
+
+.register-page{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+}
+.register-div{
+    height: 83%;
+    width: 50%;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 2px 2px 20px black;
+    border-radius: 5px;
+    font-family: 'Roboto Slab', serif;
+    font-size: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.register-div form{
+    background-color: rgb(206, 249, 255);
+    height: 72%;
+    width: 150%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    border-radius: 8px;
+}
+.username-password-div,.other-details-div{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.username-div,.password-div,.re-enter-password-div{
+    margin: 10px;
+    height: 20%;
+    width: 95%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.name-div,.email-div,.company-div,.contact-div,.address-div,.registration-number-div,.btns,.position-div,.address-div{
+    height: 15%;
+    width: 95%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 18px;
+}
+.btns{
+    margin: 3px;
+}
+.username-div img,.password-div img,.re-enter-password-div img{
+    height: 40px;
+    width: 40px;
+}
+.register-inputs{
+    width: 60%;
+    height: 60%;
+    padding-left: 3%;
+    border-radius: 5px;
+    font-family: 'Roboto Slab', serif;
+    font-size: 16px;
+}
+#register-btn,.next-btn,.back-btn{
+    margin: 10px;
+    height: 30px;
+    width: 50%;
+    border-radius: 10px;
+    font-family: 'Roboto Slab', serif;
+    font-size: 15px;
+    background-color: #4fa3e3;
+    color: white;
+}
+#register-btn:hover,.next-btn:hover{
+    cursor: pointer;
+    font-size: 18px;
+    background-color: #339ef0;
+}
+
+@media (max-width: 1050px) {
+    .register-div {
+        width: 60%;
+    }
+}
+@media (max-height: 1400px) and (max-width: 1200px) {
+    .register-div {
+        height: 40%;
+    }
+}
+@media (max-width: 500px) {
+    .register-div{
+        height: 50%;
+        width: 85%;
+    }
+    .register-inputs{
+        font-size: 14px;
+    }
+    .name-div,.email-div,.company-div,.contact-div,.address-div,.registration-number-div,.btns{
+        font-size: 15px;
+    }
+  }
+@media (max-height: 650px) {
+    .register-div{
+        height: 80%;
+    }
+}
+.register-image {
+    width: 200px; /* Adjust size as needed */
+    height: 200px; /* Adjust size as needed */
+    margin-bottom: -60px; /* Add margin to create space between the text and image */
+    margin-top: -30px;
+  }

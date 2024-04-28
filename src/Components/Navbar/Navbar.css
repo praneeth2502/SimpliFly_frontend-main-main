@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Crete+Round:ital@1&family=Martel&display=swap');
+
+.bg-custom {
+    position: absolute;
+    background-color: black;
+}
+.navbar-nav {
+    width: 20%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+
+.navbar-brand, .nav-link {
+    color: white;
+    text-shadow: 5px 5px 4px rgba(0, 0, 0, 0.5);
+    font-weight: 200;
+    font-style: normal;
+    font-size: 20px;
+}
+
+.navbar-brand {
+    margin-left: 200px;
+}
+.navbar-nav {
+    margin-left: 20px;
+}
+
+.navbar-brand:hover {
+    color: white;
+}
+
+.nav-link {
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    margin-left: 20px; /* Adjust the margin here */
+    margin-right: 20px;
+}
+
+.nav-link:hover {
+    color: gray;
+    text-shadow: 3px 3px 4px rgba(0, 0, 0, 1.2);
+}
+
+.link-btn {
+    display: none;
+}
+
+.logout-btn:hover, .home-btn:hover {
+    cursor: pointer;
+}
+
+@media (max-width: 500px) {
+    .nav-links {
+        display: none;
+    }
+    .link-btn {
+        display: block;
+    }
+}
+

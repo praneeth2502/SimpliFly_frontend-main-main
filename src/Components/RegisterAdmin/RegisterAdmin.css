@@ -1,0 +1,9 @@
+.register-image {
+    width: 250px; /* Adjust size as needed */
+    height: 300px; /* Adjust size as needed */
+    margin-bottom: -60px; /* Add margin to create space between the text and image */
+    margin-top: -30px;
+  }
+  .register-page{
+    background-color: whitesmoke;
+  }

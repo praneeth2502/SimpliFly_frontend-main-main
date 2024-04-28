@@ -1,0 +1,113 @@
+.register-page {
+    position: relative;
+
+    background-color: whitesmoke;
+  }
+  
+  
+  .register-div {
+    width: 400px;
+    margin: 100px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+
+  
+  .register-inputs {
+    width: 80%;
+    padding: 8px;
+    margin: 8px;
+    border: 1px solid black;
+    border-radius: 5px;
+  }
+
+
+  
+  .username-password-div,
+  .other-details-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+  }
+  
+  .username-div,
+  .password-div,
+  .re-enter-password-div,
+  .name-div,
+  .email-div,
+  .contact-div,
+  .registration-number-div {
+    display: flex;
+    align-items: center;
+  }
+  
+  .username-div img,
+  .password-div img,
+  .re-enter-password-div img {
+    width: 40px;
+    margin-right: 10px;
+  }
+  
+  .re-enter-password-div {
+    margin-bottom: 20px;
+  }
+  
+  
+  .other-details-div select {
+    width: 86%;
+    padding: 8px;
+    margin: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 20px;
+    background-color: transparent;
+  }
+  
+  .btns {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 20px;
+  }
+  
+  .back-btn{
+    background-color: lightblue;
+  }
+  .next-btn {
+    margin-top: -10px;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: skyblue;
+    color: white;
+    cursor: pointer;
+  }
+  
+  #register-btn {
+    background-color: skyblue;
+  }
+  
+  .register-successfully-div {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: blue;
+    color: white;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  .register-image {
+    width: 200px; /* Adjust size as needed */
+    height: 200px; /* Adjust size as needed */
+    margin-bottom: -30px; /* Add margin to create space between the text and image */
+  }
+  input:focus, select:focus {
+    outline: none;
+  }

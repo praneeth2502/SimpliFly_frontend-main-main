@@ -1,0 +1,26 @@
+.add-route-div{
+    padding: 10px;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    background-color: gainsboro;
+}
+.add-route-form{
+    display: flex;
+    flex-direction: column;
+}
+.source-airport-div,.destination-airport-div,.distance-div{
+    margin: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+.add-route-btn{
+    margin: 10px;
+    width: 35%;
+    font-size: 18px;
+    background-color: #f6df63;
+    border-color: #f6df63;
+}
+.add-route-btn:hover{
+    background-color: goldenrod;
+}

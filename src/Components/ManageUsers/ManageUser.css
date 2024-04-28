@@ -1,0 +1,22 @@
+.get-User,.get-flightOwner{
+    height: 100%;
+    width: 100%;
+}
+.sidebar-option{
+    width: 60%;
+    height: 20%;
+    margin: 15px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: 'Roboto Slab', serif;
+    background-color: #c7e4f9;
+    box-shadow: 2px 2px 14px rgb(216, 205, 205);
+}
+.sidebar-option:hover{
+    cursor: pointer;
+    background-color:#9ad2fb;
+}

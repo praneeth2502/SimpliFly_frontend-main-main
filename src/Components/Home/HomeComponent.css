@@ -1,0 +1,241 @@
+.home-main {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 50px;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    padding: 0 20px;
+    background-image: url('./Images/background.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.8;
+  }
+  
+  .background-img {
+    opacity: 0.8;
+  }
+  
+  .flight-search-container {
+    margin: 0 auto; /* Center the box horizontally */
+    width: 70%; /* Adjust the width as needed */
+    padding: 50px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 10px 10px 10px rgba(69, 67, 67, 0.5);
+    display: flex;
+    justify-content: center; /* Center items horizontally */
+    align-items: center; /* Center items vertically */
+    opacity: 1;
+    gap: 30px;
+}
+
+.source-destination-div{
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    margin-right: 70px;
+    text-align: left;
+}
+.depart-date-div{
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    text-align: right;
+}
+.passenger-count-div{
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.passenger-count-div{
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.seatClass {
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.source-destination-div label,
+.depart-date-div label,
+.passenger-count-div label,
+.seatClass label {
+    margin-left: 20px;
+    flex: 0 0 30%; /* Adjust the width of the label as needed */
+    text-align: right;
+    margin-right: 20px; /* Add some spacing between label and input */
+    font-family: Arial, sans-serif; /* Change the font family */
+    font-size: 14px; /* Change the font size */
+    font-style: Bold;
+}
+
+
+.source-destination-div input,
+.depart-date-div input,
+.passenger-count-div input,
+.seatClass select {
+    flex: 1;
+    padding: 10px; /* Adjust the padding as needed */
+}
+
+.adult-div,
+.child-div {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.adult-div label,
+.child-div label {
+    margin-right: 15px; /* Add some spacing between label and input */
+}
+
+.adult-div input,
+.child-div input {
+    width: 50px; /* Adjust the width of the input as needed */
+    padding: 20px; /* Adjust the padding as needed */
+}
+
+.Services{
+    margin-top: 100;
+}
+.depart-date-div {
+    display: flex;
+    flex-direction: column;
+    height: 68px;
+    margin-bottom: 0px;
+    margin-right: 20px;
+  }
+  .depart-date-div input{
+    border-color: black;
+  }
+  
+  .depart-date-div label {
+    text-align: right;
+    margin-bottom: 2px; /* Adjust as needed */
+    margin-left: 2px;
+  }
+  .passenger-count-div {
+    width: 90px;
+    display: flex;
+    flex-direction: column;
+    height: 30px;
+    margin-bottom: 35px;
+  }
+  .departure-div{
+    margin-right: 20px;
+  }
+  .departure-div input{
+    border-color: black;
+  }
+  .arrival-div{
+    margin-right: 20px;
+  }
+  .arrival-div input{
+    border-color: black;
+  }
+  .departure-div label{
+    margin-left: 20px;
+  }
+  .passenger-count-div-adult{
+    margin-right: 20px;
+  }
+  .passenger-count-div-adult input{
+    border-color: black;
+  }
+  .passenger-count-div-child{
+    margin-right: -30px;
+  }
+  .passenger-count-div-child input{
+    border-color: black;
+  }
+  .Search-flights-text{
+    margin-bottom: 30px;
+    margin-left: 380px;
+    margin-top: -30px;
+    font-weight: bold;
+    color: #aa8001;
+    
+  }
+  #itemlist option{
+    font-weight: bold;
+  }
+ .show-flights button{
+    width: 200px;
+    height: 50px;
+    margin-left: 400px;
+    background-color: #f5df69;
+ }
+ .show-flights button:hover{
+    background-color: gold;
+ }
+ @media (min-width: 769px) {
+    .home-main {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 50px;
+      justify-content: center;
+      align-items: center;
+      height: 80vh;
+      padding: 0 20px;
+      background-image: url('./Images/background.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      opacity: 0.8;
+    }
+  
+    .background-img {
+      opacity: 0.8;
+    }
+  
+    .flight-search-container {
+        margin: 0 auto; /* Center the box horizontally */
+        width: 70%; /* Adjust the width as needed */
+        padding: 50px;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 10px 10px 10px rgba(69, 67, 67, 0.5);
+        display: flex;
+        justify-content: center; /* Center items horizontally */
+        align-items: center; /* Center items vertically */
+        opacity: 1;
+        gap: 30px; /* Remove box shadow for mobile view */
+    }
+
+    .source-destination-div {
+        margin-left: 10px;
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+        margin-right: 70px;
+        text-align: left;
+      }
+  }
+  @media (max-width: 768px) {
+    .home-main {
+      /* Add mobile styles here */
+    }
+  
+    .flight-search-container {
+      /* Add mobile styles here */
+    }
+  
+    .source-destination-div {
+      /* Add mobile styles here */
+    }
+  
+    /* Add other mobile styles here */
+  }
+ 
+  
+

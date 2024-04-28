@@ -1,0 +1,49 @@
+.get-User{
+    margin-left: 20%;
+}
+.get-bookings,.get-bookings-history{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.more-profile-option{
+    display: none;
+}
+.get-User-div{
+    width: 70%;
+}
+@media (max-width: 900px) {
+.account-sidebar{
+    display: none;
+    width: 100%;
+}
+.get-User {
+    margin-left: 5%;
+}
+.more-profile-option{
+    display: flex;
+    width: 100%;
+}
+.right-arrow,.left-arrow{
+    width: 30px;
+    height: auto;
+    margin: 10px;
+}
+
+}
+.account-sidebar{
+    background-color: #c9c8c9;
+}
+.container-body{
+    background-color: whitesmoke;
+}
+.sidebar-option{
+    background-color: #9e9f9e;
+    
+}
+.sidebar-option:hover{
+    background-color: white;
+    color: inherit; /* Use the same color as the default text color */
+    cursor: pointer; /* Change cursor to pointer on hover */
+  }
+  

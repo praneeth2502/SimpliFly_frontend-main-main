@@ -1,0 +1,49 @@
+
+.navbar-menu{
+    height: 100vh;
+    width: 100vw;
+    margin-top: 15%;
+    position: absolute;
+    flex-direction: column;
+}
+.nav-menu-link{
+    width: 97%;
+    height: 10%;
+    margin :1.5%;
+    background-color: #1a77a3;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 2px 2px 14px rgb(203, 196, 196);
+    font-family: 'Roboto Slab', serif;
+    font-size: 18px;
+    font-weight: bold;   
+}
+.back-img{
+    height: 40px;
+    width: 50px;
+}
+.back{
+    height: 12%;
+    justify-content: start;
+    text-decoration: underline;
+    background-color: white;
+    color: #1a77a3;
+}
+.back:hover{
+    cursor: pointer;
+    color: rgb(24, 93, 242);
+}
+.simplifly-txt{
+    font-family: "Lobster", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 36px;
+    color: #1a77a3;
+    position: fixed;
+    bottom: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}

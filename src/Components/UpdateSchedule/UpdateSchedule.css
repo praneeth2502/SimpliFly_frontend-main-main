@@ -1,0 +1,85 @@
+.update-schedule-div{
+    margin-top: -1%;
+    height: 101%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.update-schedule-options{
+    height: 400px;
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 2px 2px 14px rgb(60, 59, 59);  
+}
+.update-option-btn{
+    display: flex;
+    justify-content: space-between;
+    background-color: #b7b7b6;
+}
+.btn1{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 10%;
+    padding: 5px;
+    width: 25%;
+    font-weight: bold;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+}
+.btn1:hover{
+    cursor: pointer;
+    box-shadow: 2px 2px 14px rgb(60, 59, 59);    
+}
+.btn2{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 10%;
+    padding: 5px;
+    width: 25%;
+    font-weight: bold;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+}
+.btn2:hover{
+    cursor: pointer;
+    box-shadow: 2px 2px 14px rgb(60, 59, 59);    
+}
+.update-schedule-flight,.update-schedule-dateTime{
+    margin: 10%;
+    padding: 5%;
+    display: flex;
+    flex-direction: column;
+}
+.update-schedule-flight select{
+    margin-top: 20px;
+}
+.update-schedule-FLight-btn{
+    margin-top: 30px;
+    width: 50%;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  background-color: #f6df63;
+  border-color: #f6df63;
+  box-shadow: 2px 2px 8px rgb(145, 143, 143);
+}
+.update-schedule-FLight-btn:hover{
+    background-color: goldenrod;
+}
+.edit-icon{
+    margin-top: 20px;
+    height: 30px;
+    width: auto;
+}
+.edit-icon:hover{
+    box-shadow: 2px 2px 8px rgb(145, 143, 143);
+    cursor: pointer;
+}

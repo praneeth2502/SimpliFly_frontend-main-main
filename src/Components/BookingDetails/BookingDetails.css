@@ -1,0 +1,132 @@
+.booking-details-page {
+  width: 100vw;
+  height: 100vh;
+  margin-top: 7%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.booking-details-page .available-flights-div{
+    height: 15%;
+    width: 60%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.selected-flight-detail{
+    display: flex;
+  align-items: center;
+  font-weight: 500;
+  font-family: "Roboto", sans-serif;
+}
+.selected-flight-detail .airline-logo{
+    height: 60px;
+    width: auto;
+}
+.selected-flight-source,.selected-flight-destination,.time-diff,.flight-price{
+    font-weight: bold;
+  font-family: "Roboto", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.passenger-form{
+    width: 60%;
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+  box-shadow: 2px 2px 8px rgb(145, 143, 143);
+}
+.passenger-list{
+    width: 90%;
+    border-radius: 6px;
+    margin: 10px;
+}
+#passengerList{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.passengers-list{
+  width: 50%;
+  height: 40%;
+  background-color: springgreen;
+}
+.added-passenger-list{
+  box-shadow: 2px 2px 8px rgb(145, 143, 143);
+  margin: 5px;
+  width: 100%;
+  font-size: 18px;
+  border-radius: 6px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.added-passenger{
+  width: 60%;
+}
+.added-passenger-list strong{
+  margin: 5px;
+}
+.remove-passenger-btn{
+border-radius: 6px;
+background-color: red;
+color: white;
+font-size: 20px;
+font-weight: bold;
+padding: 4px;
+margin: 10px;
+}
+.remove-passenger-btn:hover{
+  box-shadow: 2px 2px 8px rgb(98, 96, 96);
+}
+.book-seats-btn{
+  width: 16%;
+  font-size: 18px;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  border-radius: 6px;
+  background-color: #f6de63;
+  color: white;
+}
+.book-seats-btn:hover{
+  background-color: gold;
+  box-shadow: 2px 2px 8px rgb(145, 143, 143);
+}
+#addPassengerBtn{
+  background-color: #f6de63;
+  color: white;
+}
+#addPassengerBtn:hover{
+  box-shadow: 2px 2px 8px rgb(145, 143, 143);
+  background-color: gold;
+}
+
+@media (max-width: 900px) {
+  .booking-details-page{
+    margin-top: 25%;
+  }
+  .booking-details-page .available-flights-div{
+    width: 96%;
+    height: auto;
+    flex-direction: column;
+  }
+  .selected-flight-source,.selected-flight-destination{
+    flex-direction: row;
+    width: 94%;
+    justify-content: space-between;
+  }
+  .passenger-form{
+    width: 90%;
+  }
+  .added-passenger{
+    width: 96%;
+  }
+  ul{
+    padding-left: 0;
+  }
+  .book-seats-btn{
+    width: 60%;
+  }
+}

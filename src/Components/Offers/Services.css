@@ -1,0 +1,22 @@
+/* Services.css */
+
+/* Main image section */
+#main-image {
+    margin-top: 20px;
+}
+
+/* Offers section */
+#offers {
+    margin-top: 20px;
+}
+
+/* Style for the offer images */
+.offer-image {
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Style for the navigation buttons */
+.btn-nav {
+    margin-top: 10px;
+}

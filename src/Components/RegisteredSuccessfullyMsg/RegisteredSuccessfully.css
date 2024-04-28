@@ -1,0 +1,47 @@
+.registration-body-div{
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    box-shadow: 3px 4px 8px rgba(0, 0, 0, 0.1);
+}
+.registration-msg-div{
+    height: 60%;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: aliceblue;
+    box-shadow: 3px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 6px;
+}
+.registration-msg-div h3{
+    margin: 20px;
+    font-size: 32px;
+    text-shadow: 5px 5px 4px rgba(0, 0, 0, 0.5);
+}
+.green-tick{
+    height: 50%;
+    width: auto;
+    
+}
+.login-here-btn{
+    width: 30%;
+    font-size: 18px;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    border-radius: 6px;
+    background-color: white;
+    box-shadow: 2px 2px 8px rgb(145, 143, 143);
+}
+@media (max-width: 1050px) {
+    .registration-msg-div{
+        height: 60%;
+        width: 80%;
+    }
+}

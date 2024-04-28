@@ -1,0 +1,68 @@
+
+
+.container-body{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+}
+.sidebar{
+    background-color: #c6c6c6;
+    width: 25%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    box-shadow: 2px 2px 14px rgb(243, 235, 235);
+
+}
+.sidebar-container{
+    background-color: #c6c6c6;
+    margin-top: 30%;
+    height: 70%;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.sidebar-options{
+    width: 60%;
+    height: 50%;
+    margin: 15px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: 'Roboto Slab', serif;
+    background-color: #585858;
+
+}
+.sidebar-options:hover{
+    cursor: pointer;
+    background-color:#585858;
+}
+.container-main{
+    margin-top: 19%;
+    width: 75%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.get-flight,.add-flight,.update-flight,.delete-flight{
+    width: 60%;
+}
+
+.update-flight{
+    height: 50%;
+}
+
+@media (max-width: 900px) {
+    #manage-flight-sidebar{
+        display: none;
+        width: 100%;
+    }
+    .get-flight,.add-flight,.update-flight,.delete-flight{
+        width: 100%;
+    }
+}
