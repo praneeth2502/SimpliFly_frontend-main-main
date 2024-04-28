@@ -18,18 +18,23 @@ export default function RegisterUser() {
   var [email,setEmail]=useState("");
   var [phone,setPhone]=useState("");
   var [gender,setGender]=useState("male")
-  const [nameError, setNameError] = useState('');
+  const [usernameError, setUserNameError] = useState('');
   const [passwordError, setPasswordError] = useState('');
+  const [contactNumberError, setContactNumberError] = useState('');
+  const [emailError, setEmailError] = useState('');
+  const [nameError, setNameError] = useState('');
+
   const [formError, setFormError] = useState('');
-  const validatename = (Name) => {
+  const [ registerformError, setRegisterFormError] = useState('');
+  const validateUsername = (Name) => {
     if (!Name) {
-      setNameError("Please enter a name");
+      setUserNameError("Please enter a name");
       return false;
     } else if (/^[^a-zA-Z]/.test(Name)) {
-      setNameError("Name should start with a letter");
+      setUserNameError("Name should start with a letter");
       return false;
     } else {
-      setNameError("");
+      setUserNameError("");
       return true;
     }
   };
@@ -50,12 +55,67 @@ export default function RegisterUser() {
       return true;
     }
   };
+  const validatecontNumber = (ContactNumber) => {
+    // Regular expression to match a typical phone number format
+    const phoneRegex = /^\d{10}$/; // This assumes a 10-digit phone number
+  
+    if (!ContactNumber) {
+      setContactNumberError("Please enter a contact number.");
+      return false;
+    } else if (!phoneRegex.test(ContactNumber)) {
+      setContactNumberError("Please enter a valid 10-digit contact number.");
+      return false;
+    } else {
+      setContactNumberError("");
+      return true;
+    }
+  };
+  const validatemail = (Mail) => {
+    // Regular expression to match a typical email address format
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  
+    if (!Mail) {
+      setEmailError("Please enter an email address.");
+      return false;
+    } else if (!emailRegex.test(Mail)) {
+      setEmailError("Please enter a valid email address.");
+      return false;
+    }
+    else
+    {
+    // Clear the email error if it passes validation
+    setEmailError("");
+    return true;
+  }
+  };
+  
+  const validatename = (Name) => {
+    if (!Name) {
+      setNameError("Please enter a name");
+      return false;
+    } else if (/[^a-zA-Z]/.test(Name)) {
+      setNameError("Please enter a valid  name");
+      return false;
+    } else {
+      setNameError("");
+      return true;
+    }
+  };
   var user={}
   
   var Register=(e)=>{
+    if (validatename(name) && validatemail(email) && validatecontNumber(phone)){
+      setNameError("");
+      setEmailError("");
+      setContactNumberError("");
+      setRegisterFormError("");
+    }
+    else {
+      setRegisterFormError("fill the required fields for registration")
+      }
     if(!name || !email || !phone){
-      alert("Enter all required details")
-      return
+      setRegisterFormError("Fill the above fields");
+      return;
     }
     
 e.preventDefault();
@@ -73,7 +133,7 @@ var RequestOption ={
     headers : {'Content-type':'application/json'},
     body : JSON.stringify(user)
   }
-
+if (validatename(name) && validatecontNumber(phone) && validatemail(email)){
   fetch("http://localhost:5256/api/User",RequestOption)
       .then(res=>res.json())
       .then(res=>{
@@ -83,6 +143,7 @@ var RequestOption ={
       .catch(err=>{console.log(err)
         alert("User already present")})
   }
+}
 
   function DisplayUsernamePassword() {
     setDisplayUsernamePassword(true);
@@ -90,7 +151,7 @@ var RequestOption ={
   }
 
   function DisplayOtherDetails() {
-    if (!validatename(username) || !validatepassword(password)){
+    if (!validateUsername(username) || !validatepassword(password)){
       return
     }
     if(!username || !password){
@@ -118,7 +179,7 @@ var RequestOption ={
                 <img src={userimg}/>
                 <input type="text" id="username-input" placeholder="Enter your username" className="register-inputs" value={username} onChange={(e)=>setUsername(e.target.value)} required/>
             </div>
-            <span style={{ color: 'red' }}>{nameError}</span>
+            <span style={{ color: 'red' }}>{usernameError}</span>
             <div className="password-div">
                 <img src={keyimg}/>
                 <input type="password" id="password-input" placeholder="Enter your password" className="register-inputs" value={password} onChange={(e)=>setPassword(e.target.value)} required/>
@@ -137,16 +198,19 @@ var RequestOption ={
                 <input type="text" id="name-input" placeholder="Enter your name" className="register-inputs"
                 value={name} onChange={(e)=>setName(e.target.value)} required/>
             </div>
+            <span style={{ color: 'red' }}>{nameError}</span>
             <div className="email-div">
                 <label htmlFor="email">Email</label>
                 <input type="text" id="email-input" placeholder="Enter your email" className="register-inputs"
                 value={email} onChange={(e)=>setEmail(e.target.value)} required/>
             </div>
+            <span style={{ color: 'red' }}>{emailError}</span>
             <div className="contact-div">
                 <label htmlFor="contact">Contact</label>
                 <input type='tel' id="contact-input" placeholder="Enter your contact" className="register-inputs"
                 value={phone} onChange={(e)=>setPhone(e.target.value)} required/>
             </div>
+            <span style={{ color: 'red' }}>{contactNumberError}</span>
             <div className="registration-number-div">
                 <label htmlFor="registration-number">Gender</label>
                 <select value={gender} onChange={(e)=>setGender(e.target.value)}>
@@ -160,6 +224,7 @@ var RequestOption ={
             <button value="Register" id="register-btn" onClick={Register}>Register</button>
             </div>
             </div>}
+            <span style={{ color: 'red' }}>{registerformError}</span>
         </div>
       {registerMessage && <RegisteredSuccessfully className="register-successfully-div"/>}
       </div>
