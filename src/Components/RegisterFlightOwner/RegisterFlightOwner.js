@@ -21,6 +21,87 @@ export default function RegisterFlightOwner() {
   var [contactNumber,setContactNumber]=useState("");
   var [address,setAddress]=useState("");
   var [businessRegistration,setBusinessRegistration]=useState("");  
+  //change here
+  const [usernameError, setUserNameError] = useState('');
+  const [passwordError, setPasswordError] = useState('');
+ const [contactNumberError, setContactNumberError] = useState('');
+  const [emailError, setEmailError] = useState('');
+  const [nameError, setNameError] = useState('');
+
+  const [formError, setFormError] = useState('');
+  const validatename = (Name) => {
+    if (!Name) {
+      setUserNameError("Please enter a name");
+      return false;
+    } else if (/^[^a-zA-Z]/.test(Name)) {
+      setUserNameError("Name should start with a letter");
+      return false;
+    } else {
+      setUserNameError("");
+      return true;
+    }
+  };
+  const validatepassword = (Password) => {
+    if (!Password) {
+      setPasswordError("Please enter a password");
+      return false;
+    } 
+    else if(Password.length<6){
+      setPasswordError("Password must be more than 6 character")
+      return false;
+    }
+    else if (/^[a-zA-Z0-9]+$/.test(Password)) {
+      setPasswordError("Password should be alphanumeric");
+      return false;
+    } else {
+      setPasswordError("");
+      return true;
+    }
+  };
+  const validatecontNumber = (ContactNumber) => {
+    const phoneRegex = /^\d{10}$/; // This assumes a 10-digit phone number
+    if (!ContactNumber) {
+      setContactNumberError("Please enter a contact number.");
+      return false;
+    }
+    else if (!phoneRegex.test(ContactNumber)) {
+       // Regular expression to match a typical phone number formas
+      setContactNumberError("Please enter a valid 10-digit contact number.");
+      return false;
+    }
+    else{
+      setContactNumberError("");
+      return true;
+    }
+  };
+  const validmail = (Mail) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!Mail) {
+      setEmailError("Please enter an email address.");
+      return false;
+    }
+    else if (!emailRegex.test(Mail)) {
+      // Regular expression to match a typical email address format
+      setEmailError("Please enter a valid email address.");
+      return false;
+    }
+    return true;
+  };
+  const validaname = (Name) => {
+    if (!Name) {
+      setNameError("Please enter a name");
+      return false;
+    } else if (/[^a-zA-Z]/.test(Name)) {
+      setNameError("Please enter a valid passenger name");
+      return false;
+    } else {
+      setNameError("");
+      return true;
+    }
+  };
+  
+  //till here
+
 
   var flightOwner={}
   var Register =(e)=>{
@@ -60,14 +141,18 @@ export default function RegisterFlightOwner() {
   }
 
   function DisplayOtherDetails() {
+    if (!validatename(username) || !validatepassword(password)){
+      return
+    }
     if(!username || !password){
-      alert("Please enter username and password");
+      setFormError("Fill the above fields");
       return;
     }
     if(password!=confirmPassword){
-      alert("Password and confirm password does not matched")
+      setFormError("Password and confirm password does not matched")
       return;
     }
+    setFormError("");
     setDisplayOtherDetailsDiv(true);
     setDisplayUsernamePassword(false);
   }
@@ -84,16 +169,19 @@ export default function RegisterFlightOwner() {
                 <img src={userimg}/>
                 <input type="text" id="username-input" placeholder="Enter your username" className="register-inputs" value={username} onChange={(e)=>setUsername(e.target.value)} required/>
             </div>
+            <span style={{ color: 'red' }}>{nameError}</span>
             <div className="password-div">
                 <img src={keyimg}/>
                 <input type="password" id="password-input" placeholder="Enter your password" className="register-inputs" value={password} onChange={(e)=>setPassword(e.target.value)} required/>
             </div>
+            <span style={{ color: 'red' }}>{passwordError}</span>
             <div className="re-enter-password-div">
                 <img src={keyimg}/>
                 <input type="password" id="passwords-input" placeholder="Re-enter password" className="register-inputs" value={confirmPassword} onChange={(e)=>setConfirmPassword(e.target.value)} required/>
             </div>
             <button className="next-btn" onClick={DisplayOtherDetails}>Next</button>
             </div>}
+            <span style={{ color: 'red' }}>{formError}</span>
             {displayOtherDetailsDiv && <div className="other-details-div" id="other-details-div">
             <div className="name-div">
                 <label htmlFor="name"style={{ fontSize: '16px', fontWeight: 'bold'  }}>Name:</label>
