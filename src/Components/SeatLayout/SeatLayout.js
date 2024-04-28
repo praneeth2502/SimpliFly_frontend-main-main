@@ -15,7 +15,7 @@ export default function SeatLayout() {
      const [expiryError, setExpiryError] = useState('');
      const [cvvError, setcvvError] = useState('');
      const [formError, setFormError] = useState('');
-
+     //praneeth kumar
      const validatecardNumber = (cardnumber) => {
       if(!cardnumber)
       {
