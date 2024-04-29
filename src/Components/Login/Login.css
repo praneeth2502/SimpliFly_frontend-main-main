@@ -148,6 +148,13 @@
     color: blue;
     cursor: pointer;
   }
+  .register-user span:hover {
+    text-decoration: underline;
+  }
+  .register-user span {
+    color: blue;
+    cursor: pointer;
+  }
   
   .forgot-password span:hover {
     text-decoration: underline;
@@ -163,4 +170,8 @@
     margin-top: -30px;
     margin-bottom: -30px;
     margin-left: 220px;
+  }
+
+  .register-user:hover{
+    text-decoration: underline;
   }

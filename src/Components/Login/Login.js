@@ -70,13 +70,16 @@ setFormError("Please fix the errors before logging in.")
       body: JSON.stringify(user),
     };
 
+    const messageBox = document.getElementById("message-box");
     fetch("http://localhost:5256/api/User/Login", requestOptions)
       .then((res) => res.json())
       .then((res) => {
         sessionStorage.setItem("token", res.token);
         sessionStorage.setItem("username", res.username);
         sessionStorage.setItem("role", res.role);
-        alert("Login success - " + res.username);
+        // Display message box on the screen
+        messageBox.style.display = "block";
+        messageBox.innerHTML = "Login success - " + res.username;
 
         if (sessionStorage.getItem("role") == "flightOwner") {
           var getRequestOptions = {
@@ -96,7 +99,12 @@ setFormError("Please fix the errors before logging in.")
             .then((response) =>
               sessionStorage.setItem("ownerId", response.ownerId)
             )
-            .catch((err) => console.log(err));
+            .catch((err) => {
+              console.error("Error:", err);
+              // Display error message box on the screen
+              messageBox.style.display = "block";
+              messageBox.innerHTML = "An error occurred. Please try again.";
+            });
 
           navigate("/flightOwner/home");
         } else if (sessionStorage.getItem("role") == "customer") {
@@ -159,9 +167,16 @@ setFormError("Please fix the errors before logging in.")
     <div>
       <div className="login-page">
         <div className="login-div">
+        <div id="message-box" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p id="message-content"></p>
+    <button id="ok-button">OK</button>
+  </div>
+</div>
           <h3></h3>
           <h3></h3>
-          <h3>Login</h3>
+          <h3>Welcome Back</h3>
           <div className="login-img"><img src={loginImage} alt="Login Image" /></div>
           <form>
             <div className="username-div">
@@ -193,20 +208,14 @@ setFormError("Please fix the errors before logging in.")
                {/* Changed here */}
                <span style={{ color: 'red' }}>{passwordError}</span>
               {/* till here */}
-
+              <h6 className="forgot-password" onClick={()=>navigate('/UpdatePassword')}>forgot password?</h6>
             <input type="submit" value="Login" id="login-btn" onClick={Login} />
               {/* Changed here */}
               <span style={{ color: 'red' }}>{formError}</span>
             {/* till here */}
-            <h6 className="forgot-password" onClick={()=>navigate('/updatePassword')}>forgot password?</h6>
+            <h6 className="register-user" style={{ color: 'blue', cursor: 'pointer' }} onClick={()=>navigate('/registerUser')}>Sign Up as Customer</h6>
+            <h6 className="register-user" style={{ color: 'blue', cursor: 'pointer' }} onClick={()=>navigate('/register')}>Sign Up as Flight Owner</h6>
           </form>
-          <p className="register-text">
-            Don't have account? register as-<br/>
-            <span id="registerhere-text">
-              <button className='register-option-btn' onClick={()=>navigate('/registerUser')}>Customer</button>
-              <button className='register-option-btn' onClick={()=>navigate('/register')}>FlightOwner</button>
-            </span>
-          </p>
         </div>
       </div>
     </div>

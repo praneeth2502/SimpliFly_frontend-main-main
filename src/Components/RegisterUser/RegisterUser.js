@@ -144,7 +144,6 @@ if (validatename(name) && validatecontNumber(phone) && validatemail(email)){
         alert("User already present")})
   }
 }
-
   function DisplayUsernamePassword() {
     setDisplayUsernamePassword(true);
     setDisplayOtherDetailsDiv(false);
@@ -162,12 +161,10 @@ if (validatename(name) && validatecontNumber(phone) && validatemail(email)){
       setFormError("Password and confirm password does not matched")
       return;
     }
-    
     setFormError("");
     setDisplayOtherDetailsDiv(true);
     setDisplayUsernamePassword(false);
   }
-
   return (
     <div>
       <div className="register-page">
@@ -212,13 +209,19 @@ if (validatename(name) && validatecontNumber(phone) && validatemail(email)){
             </div>
             <span style={{ color: 'red' }}>{contactNumberError}</span>
             <div className="registration-number-div">
-                <label htmlFor="registration-number">Gender</label>
-                <select value={gender} onChange={(e)=>setGender(e.target.value)}>
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
-                    <option value="other">Other</option>
-                </select>
-            </div>
+    <label>Gender</label>
+    <div className="radio-buttons">
+        <label htmlFor="male">Male</label>
+        <input type="radio" id="male" name="gender" value="male" checked={gender === "male"} onChange={(e) => setGender(e.target.value)} />
+
+        <label htmlFor="female">Female</label>
+        <input type="radio" id="female" name="gender" value="female" checked={gender === "female"} onChange={(e) => setGender(e.target.value)} />
+
+        <label htmlFor="other">Other</label>
+        <input type="radio" id="other" name="gender" value="other" checked={gender === "other"} onChange={(e) => setGender(e.target.value)} />
+    </div>
+</div>
+
             <div className="btns">
             <button className="back-btn" onClick={DisplayUsernamePassword}>Back</button>
             <button value="Register" id="register-btn" onClick={Register}>Register</button>

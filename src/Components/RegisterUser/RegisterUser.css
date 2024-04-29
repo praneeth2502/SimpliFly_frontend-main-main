@@ -111,3 +111,15 @@
   input:focus, select:focus {
     outline: none;
   }
+  .radio-buttons {
+    display: flex;
+    flex-direction: row;
+}
+
+.radio-buttons label {
+    margin-right: 10px;
+}
+
+.radio-buttons input[type="radio"] {
+    margin-right: 5px;
+}

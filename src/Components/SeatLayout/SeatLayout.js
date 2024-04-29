@@ -160,8 +160,8 @@ export default function SeatLayout() {
     if(!cardNumber || !cvv || !expiry){
       setFormError("Please fix the errors before logging in.")
       return
-
     }
+    setFormError("")
     bookingDetails.scheduleId=scheduleId;
     bookingDetails.userId=parseInt(userId);
     bookingDetails.bookingTime=new Date().toISOString();

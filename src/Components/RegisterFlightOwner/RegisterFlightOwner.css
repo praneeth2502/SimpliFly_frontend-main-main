@@ -41,7 +41,7 @@
 }
 
 .username-div,.password-div,.re-enter-password-div{
-    margin: 10px;
+    margin: 5px;
     height: 20%;
     width: 95%;
     display: flex;
