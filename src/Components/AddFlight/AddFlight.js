@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import './AddFlight.css';
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 
 export default function AddFlight() {
   var [flightNumber, setFlightNumber] = useState('');
   var [airline, setAirline] = useState('');
   var [totalSeats, setTotalSeats] = useState('');
   var [basePrice, setBasePrice] = useState('');
-
   const [company, setCompany] = useState('');
 
   useEffect(() => {
@@ -25,7 +26,7 @@ export default function AddFlight() {
   var flightDetails = {};
   var AddFlight = (e) => {
     if (!flightNumber || !totalSeats || !basePrice) {
-      alert('Enter all required fields');
+      toast('Enter all required fields');
       return;
     }
     e.preventDefault();
@@ -50,11 +51,11 @@ export default function AddFlight() {
       .then((res) => res.json())
       .then((res) => {
         console.log('Response:', res);
-        alert('Flight added successfully');
+        toast('Flight added successfully');
       })
       .catch((err) => {
         console.error('Error:', err);
-        alert('Flight Already Exists');
+        toast('Flight Already Exists');
       });
   };
 
@@ -71,7 +72,7 @@ export default function AddFlight() {
         </div>
         <div className='total-seats-div flight-detail-div'>
           <label htmlFor='total-seats'><b>Total Seats : </b></label>
-          <input type='number' placeholder='Enter total seats' value={totalSeats} onChange={(e) => setTotalSeats(e.target.value)} required />
+          <input type='number' placeholder='Enter total seats' value={totalSeats} min ='30' onChange={(e) => setTotalSeats(e.target.value)} required />
         </div>
         <div className='base-price-div flight-detail-div'>
           <label htmlFor='base-price'><b>Base Price : </b></label>
@@ -79,6 +80,7 @@ export default function AddFlight() {
         </div>
         <button type='button' className='add-flight-btn' onClick={AddFlight}>Add Flight</button>
       </form>
+      <ToastContainer />
     </div>
   );
 }

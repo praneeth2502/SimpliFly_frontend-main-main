@@ -21,24 +21,8 @@
     flex-direction: column;
     align-items: center;
 }
-.sidebar-options{
-    width: 60%;
-    height: 50%;
-    margin: 15px;
-    border-radius: 8px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: 'Roboto Slab', serif;
-    background-color: #565757;
-    box-shadow: 2px 2px 14px rgb(216, 205, 205);
-}
-.sidebar-options:hover{
-    cursor: pointer;
-    background-color:#9ad2fb;
-}
+
+
 .container-main{
     margin-top: 8%;
     width: 75%;

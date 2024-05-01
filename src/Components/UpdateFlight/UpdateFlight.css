@@ -5,7 +5,7 @@
   width: 100%;
   box-shadow: 2px 2px 16px rgb(90, 87, 87);
   border-radius: 5px;
-  background-color: gainsboro;
+  background-color: white;
 }
 .update-options-div {
   margin-top: 5%;
@@ -23,15 +23,18 @@
   cursor: pointer;
   border: 1px solid #ccc;
   border-radius: 5px;
-  background-color: #f6df63;
+  background-color: #5444dc;
   height: fit-content;
+  color: white;
 }
 
 .update-airline-btn:hover,
 .update-seats-btn:hover,
 .update-status-btn:hover {
     cursor: pointer;
-  background-color:goldenrod;
+    font-weight: 500;
+  background-color:white;
+  color: #5444dc;
 }
 .update-div{
     padding: 20px;
@@ -53,11 +56,13 @@
   margin-left: 45%;
     font-size: 18px;
   width: 40%;
-  background-color: #f6df63;
-  border-color:#f6df63 ;
+  background-color: #5444dc;
+  border-color:#5444dc ;
+  color: white;
 }
 .update-flight-btn:hover{
   cursor: pointer;
-  background-color:goldenrod;
+  background-color:white;
+  color: #5444dc;
 }
 

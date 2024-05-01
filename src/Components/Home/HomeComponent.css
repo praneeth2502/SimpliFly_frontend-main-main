@@ -221,21 +221,6 @@
         text-align: left;
       }
   }
-  @media (max-width: 768px) {
-    .home-main {
-      /* Add mobile styles here */
-    }
-  
-    .flight-search-container {
-      /* Add mobile styles here */
-    }
-  
-    .source-destination-div {
-      /* Add mobile styles here */
-    }
-  
-    /* Add other mobile styles here */
-  }
- 
+
   
 

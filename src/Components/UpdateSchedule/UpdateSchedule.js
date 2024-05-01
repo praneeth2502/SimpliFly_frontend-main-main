@@ -5,7 +5,9 @@ import indigo from "../../Assets/Images/indigo.png";
 import airIndia from "../../Assets/Images/airindia.png";
 import vistara from "../../Assets/Images/vistara.png";
 import editIcon from "../../Assets/Images/edit-icon.png";
-
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
 export default function UpdateSchedule() {
   const [flights, setFlights] = useState([]);
   const [airports, setAirports] = useState([]);
@@ -24,6 +26,9 @@ export default function UpdateSchedule() {
   const minDateTime = currentDate.toISOString().slice(0, 16);
   const [currentPage, setCurrentPage] = useState(1);
   const schedulesPerPage = 4;
+  
+  const ownerId = sessionStorage.getItem("ownerId");
+
 
   function getDate(date) {
     const formattedDate = date.toLocaleDateString();
@@ -87,7 +92,7 @@ export default function UpdateSchedule() {
 
   function UpdateScheduleFlight() {
     if (!flightNumber) {
-      alert('Select Flight');
+      toast('Select Flight');
       return;
     }
     var updateDetails = {};
@@ -106,7 +111,7 @@ export default function UpdateSchedule() {
       .then((res) => res.json)
       .then((res) => {
         console.log(res);
-        alert('Updated flight for the Schedule');
+        toast('Updated flight for the Schedule');
       })
       .catch((err) => {
         console.log(err);
@@ -115,7 +120,7 @@ export default function UpdateSchedule() {
 
   function UpdateScheduleDate() {
     if (departureTime == arrivalTime) {
-      alert('Departure and arrival time cannot be same');
+      toast('Departure and arrival time cannot be same');
       return;
     }
     var updateDetails = {};
@@ -135,7 +140,7 @@ export default function UpdateSchedule() {
       .then((res) => res.json)
       .then((res) => {
         console.log(res);
-        alert('Updated Time for the Schedule');
+        toast('Updated Time for the Schedule');
       })
       .catch((err) => {
         console.log(err);
@@ -203,7 +208,7 @@ export default function UpdateSchedule() {
                     {getDate(new Date(schedule.arrival)).formattedTime}
                   </div>
                 </div>
-                <img src={editIcon} onClick={() => DisplayUpdate(schedule.id)} className='edit-icon' />
+                {schedule.flight.flightOwnerOwnerId == ownerId && <img src={editIcon} onClick={() => DisplayUpdate(schedule.scheduleId)} className='edit-icon' />}
               </div>
             </div>
           ))}

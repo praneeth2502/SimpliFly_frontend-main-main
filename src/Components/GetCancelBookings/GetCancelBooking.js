@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
-import "./GetCancelBookings.css";
+import "./GetCancelBooking.css";
 import axios from "axios";
 import indigo from "../../Assets/Images/indigo.png";
 import airIndia from "../../Assets/Images/airindia.png";
 import vistara from "../../Assets/Images/vistara.png";
 
 export default function GetCancelBookings() {
-
   var [bookings, setBooking] = useState([]);
   var userId = sessionStorage.getItem("ownerId");
   const token = sessionStorage.getItem("token");
@@ -53,12 +52,16 @@ export default function GetCancelBookings() {
   }, []);
 
   function GetUser(id) {
-    const User = users.find((user) => user.userId === id);
-    if (User) {
-      return User.name;
+    if (users && users.length > 0) {
+        const User = users.find((user) => user.userId === id);
+        if (User) {
+            return User.name;
+        }
     }
     return "User Not Found";
   }
+
+  
 
   function getDate(date) {
     const formattedDate = date.toLocaleDateString();
@@ -91,6 +94,40 @@ export default function GetCancelBookings() {
     }
   };
 
+  const handleRefundStatusUpdate = (bookingId, newStatus) => {
+    const httpHeader = {
+      headers: { Authorization: "Bearer " + token },
+    };
+    axios
+      .put(
+        `http://localhost:5256/api/Bookings/UpdateRefundStatus`,
+        { id: bookingId, refundStatus: newStatus },
+        httpHeader
+      )
+      .then(function (response) {
+        console.log(response.data);
+        alert("Refund status update successful");
+        // Refresh the bookings list
+        axios
+          .get(
+            `http://localhost:5256/api/users/GetAllCancelledBookings`,
+            httpHeader
+          )
+          .then(function (response) {
+            const sortBookings = response.data.sort((a, b) => new Date(b.bookingTime) - new Date(a.bookingTime));
+            setBooking(sortBookings);
+            console.log(response.data);
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+      })
+      .catch(function (error) {
+        console.error("Error:", error);
+        alert("Error updating refund status.");
+      });
+  };
+
   const indexOfLastBooking = currentPage * bookingsPerPage;
   const indexOfFirstBooking = indexOfLastBooking - bookingsPerPage;
   const currentBookings = bookings.slice(indexOfFirstBooking, indexOfLastBooking);
@@ -100,8 +137,8 @@ export default function GetCancelBookings() {
   return (
     <div className="bookings-div">
       <div className="get-bookings-div">
-        {currentBookings.map((booking, index) => (
-          <div key={index} className="booking-list-div">
+        {currentBookings.filter(cb => cb.booking.schedule.flight.flightOwnerOwnerId == userId).map((booking, index) => (
+          <div key={index} className="booking-list-div1">
             <div className="booking-schedule-details">
               <div className="booking-flight-detail">
                 <img
@@ -139,8 +176,17 @@ export default function GetCancelBookings() {
                   {getDate(new Date(booking.booking.schedule.arrival)).formattedTime}
                 </p>
               </div>
+              <div className="refund-status-container">
+  <select
+    className="refund-status-select"
+    value={booking.refundStatus}
+    onChange={(e) => handleRefundStatusUpdate(booking.id, e.target.value)}
+  >
+    <option value="Refund Issued">Refund Issued</option>
+    <option value="Refund Declined">Refund Declined</option>
+  </select>
+</div>
 
-              <div className='delete-user-btn' onClick>E</div>
             </div>
             <div className="booking-passenger-details">
               <div>
@@ -149,6 +195,9 @@ export default function GetCancelBookings() {
               </div>
               <div>
                 Booked By : <b>{GetUser(booking.booking.userId)}</b>
+              </div>
+              <div>
+                Refund Status : <b>{booking.refundStatus}</b>
               </div>
             </div>
           </div>

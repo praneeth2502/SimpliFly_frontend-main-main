@@ -1,15 +1,27 @@
 import React, { useState } from "react";
 import "./AddRoute.css";
-
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 export default function AddRoute() {
   var [sourceAirport, setSourceAirport] = useState();
   var [destinationAirport, setDestinationAirport] = useState();
   var [distance, setDistance] = useState();
   var [airports, setAirports] = useState([]);
-
+  var [airportError,setAirportError] = useState([]);
+  var [distanceError,setDistanceError] = useState([]);
   var routeDetail = {};
 
   var AddNewRoute = (e) => {
+      if (!sourceAirport || !destinationAirport || !distance) {
+        setAirportError("Please fill in all fields");
+        return;
+      }
+      if(distance<100){
+        setDistanceError("Distance shoud be atleast 100kms.");
+        return;
+      }
+      setDistanceError("");
+      setAirportError("");
     e.preventDefault();
     routeDetail.sourceAirportId = parseInt(sourceAirport);
     routeDetail.destinationAirportId = parseInt(destinationAirport);
@@ -30,11 +42,11 @@ export default function AddRoute() {
     .then(res => res.json())
     .then(res => {
       console.log('Response:', res);
-      alert('Route added successfully');
+      toast('Route added successfully');
     })
     .catch(err => {
       console.error('Error:', err);
-      alert('Route already present');
+      toast('Route already present');
     });
 
   };
@@ -90,13 +102,17 @@ export default function AddRoute() {
           <input
             type="number"
             value={distance}
+            min="0"
             onChange={(e) => setDistance(e.target.value)}
           />
         </div>
+        <span style={{ color: 'red', fontSize: '14px',paddingRight:'20px' }}>{distanceError}</span>
       </form>
       <button type="button" className="add-route-btn" onClick={AddNewRoute}>
         Add Route
       </button>
+      <span style={{ color: 'red', fontSize: '14px',paddingRight:'20px' }}>{airportError}</span>
+    <ToastContainer/>
     </div>
   );
 }

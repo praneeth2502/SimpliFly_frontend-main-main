@@ -1,4 +1,4 @@
-.download-ticket-btn {
+download-ticket-btn {
     cursor: pointer;
     background-color: #007bff;
     color: white;
@@ -15,4 +15,3 @@
   .download-ticket-btn:hover {
     background-color: #0056b3;
   }
-  

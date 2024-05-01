@@ -4,7 +4,7 @@
     width: 70%;
     display: flex;
     flex-direction: column;
-    background-color: gainsboro;
+    background-color: white;
 }
 .add-schedule-form{
     display: flex;
@@ -23,9 +23,11 @@
     width: 35%;
     font-size: 18px;
     font-weight: 500;
-    background-color: #f6df63;
-    border-color: #f6df63;
+    background-color: #5662de;
+    border-color: #5662de;
+    color: white
 }
 .add-schedule-btn:hover{
-    background-color: goldenrod;
+    background-color: white;
+    color: #5662de;
 }

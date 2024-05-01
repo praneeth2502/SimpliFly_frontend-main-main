@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react";
 import "./SeatLayout.css";
 import { useSelector } from "react-redux";
 import BookingDetails from "../BookingDetails/BookingDetails";
+import planelayout from "./Images/planelayout.png";
+import seatlayout from "./Images/seatlayout.png";
+import paymentsImg from "./Images/image.png";
 
 export default function SeatLayout() {
   const [seats, setSeats] = useState([]);
@@ -189,21 +192,22 @@ export default function SeatLayout() {
         console.error("Error:", err);
       });
     }
-    
   }
   return (
     <div className="seat-layout">
       <div className="seat-color-div">
         <div className="seat-availability">
+        <img src={seatlayout} style={{width: '270%' , height:'700%',marginLeft: "650%",marginBottom: "-90%",marginTop:"50%"}}/>
         <div><p className="booked-seats"></p>Booked Seats</div>
         <div><p className="avilable-seats"></p>Available Seats</div>
         <div><p className="selected-seats"></p>Selected Seats</div>
         </div>
       </div>
       <div className="seat-layout-div">
+      <img className="planelayout" src={planelayout} style={{ width: '100%', height: '120%',marginTop: "10%",marginRight:"50%" }} />
         <div className="seat-selection">
           <div className="seat-arrangement">
-            {seats.map((seat, index) => (
+          {seats.map((seat, index) => (
               <div
               key={index}
               className={`flight ${
@@ -215,11 +219,10 @@ export default function SeatLayout() {
               }`}
               onClick={() => SelectSeat(seat.seatNumber)}
             >
-                <div id="seats"> {seat.seatNumber}</div>
+                <div id="seats"style={{ fontSize: '9px' }}> {seat.seatNumber}</div>
               </div>
             ))}
           </div>
-          <div className="passage"></div>
         </div>
         <button onClick={Payments} className="pay-btn">
           Make Payment
@@ -228,10 +231,13 @@ export default function SeatLayout() {
       {payments && (
         <div className="payments">
           <div className="payment-form mt-4 payment-form-div">
-            <h4>Payment Details</h4>
+                   <div>
+            <h4>Enter your Payment Details</h4>
+            <img className="payments-img" src={paymentsImg} />
+            </div>
             <div className="mb-3">
               <label htmlFor="cardNumber" className="form-label">
-                Card Number
+                Card Number*
               </label>
               <input
                 type="text"

@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import'./ManageBookings.css'
-import GetBookings from '../GetBookings/GetBookings'
-import GetCancelBookings from '../GetCancelBookings/GetCancelBookings'
-
+import GetBookings from '../GetBookings/GetBookings';
+import GetCancelBookings from '../GetCancelBookings/GetCancelBooking';
+import mybooking from "./Images/Mybooking.png";
+import useronline from "./Images/useronline.png"
 export default function ManageBooking() {
     const [booking,setBooking]=useState(true)
   const [cancelBooking,setCancelBooking]=useState(false)
@@ -10,37 +11,23 @@ export default function ManageBooking() {
   return (
     <div>
       <div className="container-body">
-        <div className="sidebar manage-booking-sidebar">
+        <div className="account-sidebar">
             <div className="sidebar-container">
-            <div className="sidebar-options booking-btn-div" onClick={()=>{
+            <div className="dashboard-heading">
+            <img src={useronline} className="user-online" style={{ display: "block", height: "50%", width:"50%",marginBottom: "10px",marginLeft:"70px" }}/>
+          <h2 style={{ fontSize: "20px", color: "white",textAlign: "center"}}>Dashboard</h2>
+          </div>
+            <div className="sidebar-option" onClick={()=>{
               setBooking(true);
               setCancelBooking(false);
-            }}style={{
-              backgroundColor: "#dddddc", // Red color
-              color: "black",
-              padding: "10px",
-              marginBottom: "5px",
-              cursor: "pointer",
-              transition: "background-color 0.3s" // Smooth transition
-            }}
-            onMouseEnter={(e) => e.target.style.backgroundColor = "#848484"} // Darken color on hover
-            onMouseLeave={(e) => e.target.style.backgroundColor = "#dddddc"}>
-                Get Bookings
+            }}><div style={{ display: "flex", alignItems: "left", marginRight:"60px" }}>
+            <img src={mybooking} alt="Profile" style={{ width: "20px", height: "20px", marginRight: "5px",opacity:"50px" }} /> Get Bookings</div>
             </div>
-            <div className="sidebar-options cancel-booking-btn-div" onClick={()=>{
+            <div className="sidebar-option" onClick={()=>{
               setBooking(false);
               setCancelBooking(true);
-            }}style={{
-              backgroundColor: "#dddddc", // Red color
-              color: "black",
-              padding: "10px",
-              marginBottom: "5px",
-              cursor: "pointer",
-              transition: "background-color 0.3s" // Smooth transition
-            }}
-            onMouseEnter={(e) => e.target.style.backgroundColor = "#848484"} // Darken color on hover
-            onMouseLeave={(e) => e.target.style.backgroundColor = "#dddddc"}>
-                Cancel Bookings
+            }}><div style={{ display: "flex", alignItems: "left", marginRight:"20px" }}>
+            <img src={mybooking} alt="Profile" style={{ width: "20px", height: "20px", marginRight: "5px",opacity:"50px" }} /> CancelledBookings</div>
             </div>
         </div>
         </div>
@@ -49,7 +36,7 @@ export default function ManageBooking() {
                 <GetBookings/>
             </div>}
             {cancelBooking && <div className="cancel-bookings">
-            <GetCancelBookings/>
+              <GetCancelBookings/>
             </div>}
         </div>
       </div>

@@ -1,9 +1,9 @@
 .booking-btn-div,.cancel-booking-btn-div{
-height: 20%;
-}
-
-@media (max-width: 900px) {
-    .manage-booking-sidebar{
-display: none;
+    height: 20%;
     }
-}
+    
+    @media (max-width: 900px) {
+        .manage-booking-sidebar{
+    display: none;
+        }
+    }

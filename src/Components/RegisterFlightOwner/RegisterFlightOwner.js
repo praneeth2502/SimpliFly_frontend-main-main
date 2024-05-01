@@ -95,7 +95,7 @@ export default function RegisterFlightOwner() {
       setNameError("Please enter a name");
       return false;
     } else if (/[^a-zA-Z]/.test(Name)) {
-      setNameError("Please enter a valid passenger name");
+      setNameError("Please enter a valid name");
       return false;
     } else {
       setNameError("");

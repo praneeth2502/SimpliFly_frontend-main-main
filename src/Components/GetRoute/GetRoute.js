@@ -6,7 +6,7 @@ export default function GetRoute() {
   const [routes, setRoutes] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const routesPerPage = 4;
-
+  const ownerId = sessionStorage.getItem("ownerId");
   useEffect(() => {
     const token = sessionStorage.getItem('token')
     const httpHeader = {
@@ -43,7 +43,7 @@ export default function GetRoute() {
             <b>Destination Airport :</b> {route.destinationAirport.name}, {route.destinationAirport.city}
           </div>
           <div>
-            <b>Status :</b> {route.status.name}, {route.status}
+            <b>Status :</b>  {route.status}
           </div>
         </div>
       ))}

@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import './DeleteFlight.css'
 import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 
 export default function DeleteFlight() {
 
@@ -28,7 +30,7 @@ export default function DeleteFlight() {
         headers:{'Authorization':'Bearer '+token}
     }
       axios
-        .get("http://localhost:5256/api/Flight",httpHeader)
+        .get(`http://localhost:5256/api/Flight/GetAllFlights/flightOwnerId?flightOwnerId=${flightOwnerId}`,httpHeader)
         .then(function (response) {
           setFlights(response.data);
           console.log(response.data);
@@ -40,7 +42,7 @@ export default function DeleteFlight() {
 
     var DeleteFlightFun=(e)=>{
       if(!flightNumber){
-        alert("Please select flight number")
+        toast("Please select flight number")
         return
       }
         const confirmDelete = window.confirm(`Are you sure you want to remove the flight?`);
@@ -64,11 +66,11 @@ export default function DeleteFlight() {
               .then(res=>res.json())
               .then(res=>{
                   console.log(res);
-                  alert('Flight deleted successfully');
+                  toast('Flight deleted successfully');
               })
               .catch(err => {
                   console.error('Error:', err);
-                  alert('Error deleting flight.');
+                  toast('Error deleting flight.');
                 });
         }
         
@@ -90,6 +92,7 @@ export default function DeleteFlight() {
           </select>
       </div>
       <button type='button' className='delete-flight-btn' onClick={DeleteFlightFun}>Delete Flight</button>
+      <ToastContainer/>
     </div>
   )
 }

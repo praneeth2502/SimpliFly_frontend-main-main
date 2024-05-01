@@ -1,59 +1,62 @@
 .delete-schedule-options-div {
+  margin-top: 5%;
+  padding: 10px;
+  height: 100%;
+  width: 80%;
+  box-shadow: 2px 2px 14px rgb(216, 205, 205);
+  border-radius: 5px;
+  background-color: white;
+  margin-left: 10%;
+}
+.delete-options-div {
+  display: flex;
+  height: 10%;
+  justify-content: space-evenly;
+}
+.delete-flightschedule-btn,
+.delete-dateschedule-btn {
+  margin-top: 3%;
+  width: 35%;
+  height: 35px;
+  font-size: 18px;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  background-color: whitesmoke;
+}
+.delete-flightschedule-btn:hover,
+.delete-dateschedule-btn:hover {
+    cursor: pointer;
+  background-color:white;
+}
+.delete-schedule-div{
+    padding: 20px;
     margin-top: 5%;
-    padding: 10px;
-    height: 100%;
+    height: 60%;
     width: 80%;
-    box-shadow: 2px 2px 14px rgb(216, 205, 205);
-    border-radius: 5px;
-    background-color: #b7b7b6;
-  }
-  .delete-options-div {
-    display: flex;
-    height: 10%;
-    justify-content: space-evenly;
-  }
-  .delete-flightschedule-btn,
-  .delete-dateschedule-btn {
-    margin-top: 3%;
-    width: 35%;
-    height: 35px;
     font-size: 18px;
-    font-weight: 500;
-    display: flex;
-    justify-content: center;
-    background-color: whitesmoke;
-  }
-  .delete-flightschedule-btn:hover,
-  .delete-dateschedule-btn:hover {
-      cursor: pointer;
-    background-color:white;
-  }
-  .delete-schedule-div{
-      padding: 20px;
-      margin-top: 5%;
-      height: 60%;
-      width: 80%;
-      font-size: 18px;
-  }
-  .airport-select-div{
+}
+.airport-select-div{
 width: 100%;
-  }
+}
 
-  .flightnumber-input-div,.date-div{
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      margin: 10px;
-      
-  }
-  .delete-date-schedule-btn,.delete-schedule-btn{
-    margin-top: 5%;
-      font-size: 18px;
-    font-weight: 500;
-    width: 40%;
-    background-color: #ffe064 ;
-    border-color: #ffe064;
-  }
-  .delete-date-schedule-btn:hover,.delete-schedule-btn:hover{
-    background-color: goldenrod;
-  }
+.flightnumber-input-div,.date-div{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+    
+}
+.delete-date-schedule-btn,.delete-schedule-btn{
+  margin-top: 5%;
+    font-size: 18px;
+  font-weight: 500;
+  width: 40%;
+  background-color: #5662de ;
+  border-color: #5662de;
+  color: white;
+}
+.delete-date-schedule-btn:hover,.delete-schedule-btn:hover{
+  background-color: white;
+  color: #5662de;
+}

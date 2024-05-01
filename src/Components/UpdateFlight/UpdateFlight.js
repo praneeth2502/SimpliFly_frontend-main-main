@@ -2,7 +2,9 @@ import React, { useEffect, useState } from "react";
 import "./UpdateFlight.css";
 import axios from "axios";
 import { width } from "@fortawesome/free-brands-svg-icons/fa42Group";
-
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
 export default function UpdateFlight() {
   const [updateAirline,setUpdateAirline]=useState(true)
   const [updateSeats,setUpdateSeats]=useState(false)
@@ -29,27 +31,22 @@ export default function UpdateFlight() {
   var updateSeatsDetail={}
   var updateStatusDetail={}
 
-   //change here
-   const flightOwnerId = sessionStorage.getItem("ownerId");
-   //till here
- 
- 
-   //changed here
-   const [seatError, setSeatError] = useState("");
-   const [formError, setFormError] = useState("Enter all the required fields");
-   var [isFilledAll, setIsFilledAll] = useState(false);
- 
-   function validateSeat(noOfSeats) {
-     if (noOfSeats <= 0 || noOfSeats > 120) {
-       setSeatError("Total Seats can't be negative and greater than 120");
-       return false;
-     }
-     else {
-       setSeatError("");
-       return true;
-     }
-   }
-   //till here
+  const flightOwnerId = sessionStorage.getItem("ownerId");
+
+  const [seatError, setSeatError] = useState("");
+  const [formError, setFormError] = useState("Enter all the required fields");
+  var [isFilledAll, setIsFilledAll] = useState(false);
+
+  function validateSeat(noOfSeats) {
+    if (noOfSeats <= 0 || noOfSeats > 120) {
+      setSeatError("Total Seats can't be negative and greater than 120");
+      return false;
+    }
+    else {
+      setSeatError("");
+      return true;
+    }
+  }
 
   useEffect(() => {
     const token=sessionStorage.getItem('token')
@@ -57,7 +54,7 @@ export default function UpdateFlight() {
       headers:{'Authorization':'Bearer '+token}
   }
     axios
-      .get("http://localhost:5256/api/Flight",httpHeader)
+      .get(`http://localhost:5256/api/Flight/GetAllFlights/flightOwnerId?flightOwnerId=${flightOwnerId}`,httpHeader)
       .then(function (response) {
         setFlights(response.data);
         console.log(response.data);
@@ -72,7 +69,7 @@ export default function UpdateFlight() {
 
     var UpdateFlightAirline=(e)=>{
       if(!flightNumber || !airline){
-        alert("Please enter the required details")
+        toast("Please enter the required details")
         return
       }
         e.preventDefault();
@@ -93,30 +90,25 @@ export default function UpdateFlight() {
             .then(res=>res.json())
             .then(res=>{
                 console.log(res);
-                alert('Flight airline update successfully');
+                toast('Flight airline update successfully');
             })
             .catch(err => {
                 console.error('Error:', err);
-                alert('Error updating flight.');
+                toast('Error updating flight.');
               });
     }
 
     var UpdateFlightSeats=(e)=>{
-    
+      if (!flightNumber || !seats) {
+        setIsFilledAll(true);
+        return;
+      }
+      else if (!validateSeat(seats)) {
+        setSeatError("Total Seats can't be negative and greater than 120");
+        return;
+      }
 
-          //changed here
-    if (!flightNumber || !seats) {
-      setIsFilledAll(true);
-      return;
-    }
-    else if (!validateSeat(seats)) {
-      setSeatError("Total Seats can't be negative and greater than 120");
-      return;
-    }
-    //till here
-
-     //changed this line only
-     setIsFilledAll(false);
+      setIsFilledAll(false);
 
         e.preventDefault();
         updateSeatsDetail.flightNumber=flightNumber;
@@ -135,16 +127,16 @@ export default function UpdateFlight() {
             .then(res=>res.json())
             .then(res=>{
                 console.log(res);
-                alert('Flight seats update successfully');
+                toast('Flight seats update successfully');
             })
             .catch(err => {
                 console.error('Error:', err);
-                alert('Error updating flight.');
+                toast('Error updating flight.');
               });
     }
     var UpdateFlightStatus=(e)=>{
       if(!flightNumber || !status){
-        alert("Please enter the required details")
+        toast("Please enter the required details")
         return
       }
         e.preventDefault();
@@ -159,66 +151,33 @@ export default function UpdateFlight() {
             body : JSON.stringify(updateStatusDetail)
         }
 
-        const params = new URLSearchParams({
-          flightNumber: flightNumber,
-          status: status
-        });
 
         fetch("http://localhost:5256/api/Flight/UpdateStatus",RequestOption)
             .then(res=>res.json())
             .then(res=>{
                 console.log(res);
-                alert('Flight status update successfully');
+                toast('Flight status update successfully');
             })
             .catch(err => {
                 console.error('Error:', err);
-                alert('Error updating flight status.');
+                toast('Error updating flight status.');
               });
     }
   return (
       <div className="update-flight-div">
         <div className="update-options-div">
-          <div className="update-airline-btn" onClick={()=>{
-            setUpdateAirline(true);
-            setUpdateSeats(false);
-            setUpdateStatus(false);
-          }}>Update Airline</div>
           <div className="update-seats-btn" onClick={()=>{
-            setUpdateAirline(false);
             setUpdateSeats(true);
             setUpdateStatus(false);
           }}>Update Seats</div>
           <div className="update-seats-btn" onClick={()=>{
-            setUpdateAirline(false);
             setUpdateSeats(false);
             setUpdateStatus(true);
           }}>Update Status</div>
           
         </div>
         <div className="update-div">
-          {updateAirline && <div className="update-airline">
-                <form>
-                    <div className="flightnumber-input-div">
-                        <label htmlFor="flight-number" style={{ marginLeft: '150px' }} ><b>Flight Number :</b> </label>
-                        <select
-            className="select-destination-airport"
-            onChange={handleFlightNumberChange}
-          >
-            <option value="0"style={{ marginLeft: '50px' }}>--Select flight--</option>
-            {flights.map((flight) => (
-              <option key={flight.flightNumber} value={flight.flightNumber}>
-                {flight.flightNumber}
-              </option>
-            ))}
-          </select>
-                    </div>
-                    <div className="airline-input-div">
-                        <label htmlFor="airline"style={{ marginLeft: '150px' }}><b>Airline :</b> </label>
-                        <input type="text" placeholder="Enter Airline" value={airline} onChange={(e)=>setAirline(e.target.value)}style={{ marginLeft: '-50px' }}/>
-                    </div>
-                    <button type='button' className='update-flight-btn' onClick={UpdateFlightAirline}>Update Flight</button>
-                </form>
-            </div>}
+          
             {updateSeats && <div className="update-seats">
                 <form>
                     <div className="flightnumber-input-div">
@@ -237,17 +196,13 @@ export default function UpdateFlight() {
                     </div>
                     <div className="seats-input-div">
                         <label htmlFor="seats"style={{ marginLeft: '150px' }}><b>Seats :</b> </label>
-                           {/* changed this line , onChange-> */}
-              <input type="number" placeholder="Enter Seats" value={seats} onChange={(e) => { setSeats(e.target.value); validateSeat(e.target.value) }} />
-            </div>
+                        <input type="number" placeholder="Enter Seats" value={seats} onChange={(e) => { setSeats(e.target.value); validateSeat(e.target.value) }} />
+                        </div>
+                        <span style={{ color: 'red' }}>{seatError}</span>
 
-              {/* Change here  */}
-              <span style={{ color: 'red' }}>{seatError}</span>
-            {/* till here  */}
                     <button type='button' className='update-flight-btn' onClick={UpdateFlightSeats}>Update Flight</button>
-                     {/* changed here */}
-            {isFilledAll ? <span style={{ color: 'red' }}>{formError}</span> : ""}
-            {/* till here */}
+                    {isFilledAll ? <span style={{ color: 'red' }}>{formError}</span> : ""}
+
                 </form>
             </div>}
             {updateStatus && <div className="update-status">
@@ -268,12 +223,13 @@ export default function UpdateFlight() {
                     </div>
                     <div className="status-input-div">
                         <label htmlFor="status"style={{ marginLeft: '150px' }}><b>Status :</b> </label>
-                        <input type="number" placeholder="Enter Status" value={status} onChange={(e)=>setStatus(e.target.value)}style={{ marginLeft: '77px' }}/>
+                        <input type="number" placeholder="Enter Status" value={status} min='0' max='1' onChange={(e)=>setStatus(e.target.value)}style={{ marginLeft: '77px' }}/>
                     </div>
                     <button type='button' className='update-flight-btn' onClick={UpdateFlightStatus}>Update Flight</button>
                 </form>
             </div>}
           </div>
+          <ToastContainer/>
       </div>
   );
 }
